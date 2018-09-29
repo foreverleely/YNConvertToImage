@@ -17,7 +17,7 @@
     UIGraphicsBeginImageContextWithOptions(view.frame.size,NO,0.0);
     {
         [view.layer renderInContext: UIGraphicsGetCurrentContext()];
-        image= UIGraphicsGetImageFromCurrentImageContext();
+        image = UIGraphicsGetImageFromCurrentImageContext();
     }
     UIGraphicsEndImageContext();
     
@@ -48,7 +48,7 @@
         image = UIGraphicsGetImageFromCurrentImageContext();
         
         scrollView.contentOffset = savedContentOffset;
-        scrollView.frame= savedFrame;
+        scrollView.frame = savedFrame;
     }
     UIGraphicsEndImageContext();
     
