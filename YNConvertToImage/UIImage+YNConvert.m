@@ -11,12 +11,12 @@
 @implementation UIImage (YNConvert)
 
 // convert the view's content into a image
-+ (UIImage *)convertToImageWithView:(UIView*)view
++ (UIImage *)convertToImageWithView:(UIView *)view
 {
     UIImage *image = nil;
-    UIGraphicsBeginImageContextWithOptions(view.frame.size,NO,0.0);
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
     {
-        [view.layer renderInContext: UIGraphicsGetCurrentContext()];
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
         image = UIGraphicsGetImageFromCurrentImageContext();
     }
     UIGraphicsEndImageContext();
@@ -44,7 +44,7 @@
         scrollView.contentOffset = CGPointZero;
         scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
         
-        [scrollView.layer renderInContext: UIGraphicsGetCurrentContext()];
+        [scrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
         image = UIGraphicsGetImageFromCurrentImageContext();
         
         scrollView.contentOffset = savedContentOffset;
@@ -52,7 +52,7 @@
     }
     UIGraphicsEndImageContext();
     
-    if(image != nil) {
+    if (image != nil) {
         return image;
     }
     return nil;
