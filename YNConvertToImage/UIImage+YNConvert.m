@@ -10,6 +10,18 @@
 
 @implementation UIImage (YNConvert)
 
++ (UIImage *)cutImage:(UIImage *)image inRect:(CGRect)rect {
+    
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGFloat x = rect.origin.x*scale, y = rect.origin.y*scale, w = rect.size.width*scale, h = rect.size.height*scale;
+    CGRect dianRect = CGRectMake(x, y, w, h);
+    
+    CGImageRef sourceImageRef = [image CGImage];
+    CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef, dianRect);
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef scale:scale orientation:UIImageOrientationUp];
+    return newImage;
+}
+
 // convert the view's content into a image
 + (UIImage *)convertToImageWithView:(UIView *)view
 {

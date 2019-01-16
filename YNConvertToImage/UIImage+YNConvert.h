@@ -13,6 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (YNConvert)
 
 /**
+ cut image in rect
+
+ @param image the origin image
+ @param rect cut rect
+ @return the cutted image
+ */
++ (UIImage *)cutImage:(UIImage *)image inRect:(CGRect)rect;
+
+/**
  convert the view's content into a image
 
  @param view the converted view
