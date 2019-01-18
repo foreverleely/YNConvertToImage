@@ -16,10 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
  cut image in rect
 
  @param image the origin image
+ @param scale scale
  @param rect cut rect
  @return the cutted image
  */
-+ (UIImage *)cutImage:(UIImage *)image inRect:(CGRect)rect;
++ (UIImage *)cutImage:(UIImage *)image scale:(CGFloat)scale inRect:(CGRect)rect;
 
 /**
  convert the view's content into a image

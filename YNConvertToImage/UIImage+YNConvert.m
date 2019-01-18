@@ -10,9 +10,9 @@
 
 @implementation UIImage (YNConvert)
 
-+ (UIImage *)cutImage:(UIImage *)image inRect:(CGRect)rect {
++ (UIImage *)cutImage:(UIImage *)image scale:(CGFloat)scale inRect:(CGRect)rect {
     
-    CGFloat scale = [UIScreen mainScreen].scale;
+//    CGFloat scale = [UIScreen mainScreen].scale;
     CGFloat x = rect.origin.x*scale, y = rect.origin.y*scale, w = rect.size.width*scale, h = rect.size.height*scale;
     CGRect dianRect = CGRectMake(x, y, w, h);
     
