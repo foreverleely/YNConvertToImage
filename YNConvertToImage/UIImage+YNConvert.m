@@ -19,6 +19,8 @@
     CGImageRef sourceImageRef = [image CGImage];
     CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef, dianRect);
     UIImage *newImage = [UIImage imageWithCGImage:newImageRef scale:scale orientation:UIImageOrientationUp];
+    CGImageRelease(sourceImageRef);
+    CGImageRelease(newImageRef);
     return newImage;
 }
 
