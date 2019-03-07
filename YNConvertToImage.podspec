@@ -16,15 +16,15 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "YNConvertToImage"
-  spec.version      = "1.0.7"
-  spec.summary      = "convert the view's contents to a image"
+  spec.version      = "1.0.8"
+  spec.summary      = "image utils for converting, cutting in rect or cliping by path, being updated!"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "convert the view's contents to a image"
+  spec.description  = "1.convert the view's contents to a image; 2.cut image in rect; 3.clip image with path"
 
   spec.homepage     = "https://github.com/foreverleely/YNConvertToImage"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"

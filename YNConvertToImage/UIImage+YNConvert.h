@@ -13,16 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (YNConvert)
 
 /**
- cut image in rect
-
- @param image the origin image
- @param scale scale
- @param rect cut rect
- @return the cutted image
- */
-+ (UIImage *)cutImage:(UIImage *)image scale:(CGFloat)scale inRect:(CGRect)rect;
-
-/**
  convert the view's content into a image
 
  @param view the converted view
@@ -46,6 +36,28 @@ NS_ASSUME_NONNULL_BEGIN
  @return image
  */
 + (UIImage *)convertToImageWithScrollView:(UIScrollView *)scrollView WithScale:(CGFloat)scale;
+
+
+
+/**
+ cut image in rect
+ 
+ @param image the origin image
+ @param scale scale
+ @param rect cut rect
+ @return the cutted image
+ */
++ (UIImage *)cutImage:(UIImage *)image scale:(CGFloat)scale inRect:(CGRect)rect;
+
+
+
+/**
+ clip image with path
+
+ @param addlineBlock addlineBlock
+ @return image
+ */
+- (UIImage *)pathClipWithAddLineBlock:(void(^)(CGContextRef ctxRef, CGFloat imgWidth, CGFloat imgHeight))addlineBlock;
 
 @end
 
