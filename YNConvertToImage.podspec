@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "YNConvertToImage"
-  spec.version      = "1.0.8"
+  spec.version      = "1.0.9"
   spec.summary      = "image utils for converting, cutting in rect or cliping by path, being updated!"
 
   # This description is used to generate tags and improve search results.

@@ -50,6 +50,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)cutImage:(UIImage *)image scale:(CGFloat)scale inRect:(CGRect)rect;
 
 
+/**
+ ellipse image
+
+ @return ellipse image
+ */
+- (UIImage *)circleImage;
+
 
 /**
  clip image with path

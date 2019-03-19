@@ -84,7 +84,7 @@
     
     CGImageRelease(imageRef);
     
-    return [standardImage circleImage];
+    return standardImage;
 }
 
 - (UIImage *)circleImage {
