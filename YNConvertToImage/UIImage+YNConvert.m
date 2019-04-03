@@ -14,15 +14,17 @@
 + (UIImage *)convertToImageWithView:(UIView *)view
 {
     UIImage *image = nil;
-    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
-    {
-        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    UIGraphicsEndImageContext();
-    
-    if(image != nil) {
-        return image;
+    @autoreleasepool {
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
+        {
+            [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+            image = UIGraphicsGetImageFromCurrentImageContext();
+        }
+        UIGraphicsEndImageContext();
+        
+        if(image != nil) {
+            return image;
+        }
     }
     return nil;
 }
