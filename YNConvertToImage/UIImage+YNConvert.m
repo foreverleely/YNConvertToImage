@@ -39,23 +39,25 @@
 + (UIImage *)convertToImageWithScrollView:(UIScrollView *)scrollView WithScale:(CGFloat)scale
 {
     UIImage *image = nil;
-    UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, NO, scale);
-    {
-        CGPoint savedContentOffset = scrollView.contentOffset;
-        CGRect savedFrame = scrollView.frame;
-        scrollView.contentOffset = CGPointZero;
-        scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
+    @autoreleasepool {
+        UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, NO, scale);
+        {
+            CGPoint savedContentOffset = scrollView.contentOffset;
+            CGRect savedFrame = scrollView.frame;
+            scrollView.contentOffset = CGPointZero;
+            scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
+            
+            [scrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
+            image = UIGraphicsGetImageFromCurrentImageContext();
+            
+            scrollView.contentOffset = savedContentOffset;
+            scrollView.frame = savedFrame;
+        }
+        UIGraphicsEndImageContext();
         
-        [scrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        
-        scrollView.contentOffset = savedContentOffset;
-        scrollView.frame = savedFrame;
-    }
-    UIGraphicsEndImageContext();
-    
-    if (image != nil) {
-        return image;
+        if (image != nil) {
+            return image;
+        }
     }
     return nil;
 }
