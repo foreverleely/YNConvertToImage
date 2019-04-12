@@ -17,12 +17,17 @@
     @autoreleasepool {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
         {
-            [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+            CGContextRef context = UIGraphicsGetCurrentContext();
+            CGContextSaveGState(context);
+            {
+                [view.layer renderInContext:context];
+            }
+            CGContextRestoreGState(context);
             image = UIGraphicsGetImageFromCurrentImageContext();
         }
         UIGraphicsEndImageContext();
         
-        if(image != nil) {
+        if (image != nil) {
             return image;
         }
     }
@@ -47,7 +52,12 @@
             scrollView.contentOffset = CGPointZero;
             scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
             
-            [scrollView.layer renderInContext:UIGraphicsGetCurrentContext()];
+            CGContextRef context = UIGraphicsGetCurrentContext();
+            CGContextSaveGState(context);
+            {
+                [scrollView.layer renderInContext:context];
+            }
+            CGContextRestoreGState(context);
             image = UIGraphicsGetImageFromCurrentImageContext();
             
             scrollView.contentOffset = savedContentOffset;
