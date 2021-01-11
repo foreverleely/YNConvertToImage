@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return image
  */
 + (UIImage *)convertToImageWithView:(UIView*)view;
++ (UIImage *)convertToImageWithView:(UIView *)view WithScale:(CGFloat)scale;
 
 /**
  convert the scrollView's content into a image

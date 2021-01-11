@@ -34,6 +34,29 @@
     return nil;
 }
 
++ (UIImage *)convertToImageWithView:(UIView *)view WithScale:(CGFloat)scale
+{
+    UIImage *image = nil;
+    @autoreleasepool {
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, scale);
+        {
+            CGContextRef context = UIGraphicsGetCurrentContext();
+            CGContextSaveGState(context);
+            {
+                [view.layer renderInContext:context];
+            }
+            CGContextRestoreGState(context);
+            image = UIGraphicsGetImageFromCurrentImageContext();
+        }
+        UIGraphicsEndImageContext();
+        
+        if (image != nil) {
+            return image;
+        }
+    }
+    return nil;
+}
+
 // convert the scrollview's content into a image
 + (UIImage *)convertToImageWithScrollView:(UIScrollView *)scrollView
 {
